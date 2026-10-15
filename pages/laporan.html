@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12355b" />
+    <script>document.documentElement.classList.add("js");</script>
+
+    <title>Laporan Praktik Suspensi Depan</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body class="page-laporan">
+    <!-- NAVBAR -->
+
+    <nav class="navbar no-print">
+      <div class="logo">🔧 E-JOBSHEET SUSPENSI</div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menuUtama">☰ Menu</button>
+      <ul id="menuUtama">
+        <li><a href="../index.html">Beranda</a></li>
+        <li><a href="orientasi.html">Orientasi</a></li>
+        <li><a href="materi.html">Materi</a></li>
+        <li><a href="komponen.html">Komponen</a></li>
+        <li><a href="praktik.html">Praktik</a></li>
+        <li><a href="laporan.html">Laporan</a></li>
+        <li><a href="evaluasi.html">Evaluasi</a></li>
+      </ul>
+    </nav>
+
+    <!-- HEADER LAPORAN -->
+
+    <section class="hero report-header">
+      <div class="container">
+        <p class="report-kop">E-JOBSHEET · TEKNIK DAN BISNIS SEPEDA MOTOR</p>
+        <h1>LAPORAN HASIL PRAKTIK</h1>
+
+        <h2>Pemeliharaan Sistem Suspensi Depan</h2>
+
+        <p>Telescopic Fork Sepeda Motor</p>
+      </div>
+    </section>
+
+    <!-- IDENTITAS SISWA -->
+
+    <section>
+      <div class="container">
+        <h2>Identitas Siswa</h2>
+
+        <div class="card">
+          <table class="identity-table">
+            <tr>
+              <td>Nama Siswa</td>
+
+              <td>:</td>
+
+              <td id="tampilNama">-</td>
+            </tr>
+
+            <tr>
+              <td>Kelas</td>
+
+              <td>:</td>
+
+              <td id="tampilKelas">-</td>
+            </tr>
+
+            <tr>
+              <td>Kelompok</td>
+
+              <td>:</td>
+
+              <td id="tampilKelompok">-</td>
+            </tr>
+
+            <tr>
+              <td>Tanggal Praktik</td>
+
+              <td>:</td>
+
+              <td id="tampilTanggal">-</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMASI JOB -->
+
+    <section>
+      <div class="container">
+        <h2>Informasi Praktik</h2>
+
+        <div class="info-container">
+          <div class="card">
+            <h3>Judul Job</h3>
+
+            <p>Pemeliharaan Sistem Suspensi Depan</p>
+          </div>
+
+          <div class="card">
+            <h3>Objek Praktik</h3>
+
+            <p>Sepeda Motor Honda Beat</p>
+          </div>
+
+          <div class="card">
+            <h3>Sistem</h3>
+
+            <p>Suspensi Depan Telescopic Fork</p>
+          </div>
+
+          <div class="card">
+            <h3>Pekerjaan</h3>
+
+            <p>Pemeriksaan, Pembongkaran, Pemeliharaan, dan Pengujian</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REKAP HASIL PEMERIKSAAN -->
+
+    <section>
+      <div class="container">
+        <h2>Rekap Hasil Pemeriksaan</h2>
+
+        <div class="card">
+          <p>
+            Data berikut merupakan hasil pemeriksaan komponen sistem suspensi
+            depan yang dilakukan pada kegiatan praktik.
+          </p>
+
+          <table class="inspection-table">
+            <tr>
+              <th>Komponen</th>
+
+              <th>Standar Acuan</th>
+
+              <th>Hasil Pemeriksaan</th>
+
+              <th>Kesimpulan</th>
+            </tr>
+
+            <!-- PEGAS -->
+
+            <tr>
+              <td>
+                <b> Pegas (Spring) </b>
+              </td>
+
+              <td id="standarPegas">-</td>
+
+              <td id="laporanPegas">-</td>
+
+              <td id="statusPegas">-</td>
+            </tr>
+
+            <!-- TABUNG -->
+
+            <tr>
+              <td>
+                <b> Tabung Suspensi </b>
+              </td>
+
+              <td id="standarTabung">-</td>
+
+              <td id="laporanTabung">-</td>
+
+              <td id="statusTabung">-</td>
+            </tr>
+
+            <!-- SEAL OLI -->
+
+            <tr>
+              <td>
+                <b> Seal Oli </b>
+              </td>
+
+              <td id="standarSealOli">-</td>
+
+              <td id="laporanSealOli">-</td>
+
+              <td id="statusSealOli">-</td>
+            </tr>
+
+            <!-- SEAL DEBU -->
+
+            <tr>
+              <td>
+                <b> Seal Debu </b>
+              </td>
+
+              <td id="standarSealDebu">-</td>
+
+              <td id="laporanSealDebu">-</td>
+
+              <td id="statusSealDebu">-</td>
+            </tr>
+
+            <!-- TORAK -->
+
+            <tr>
+              <td>
+                <b> Torak / Damper </b>
+              </td>
+
+              <td id="standarTorak">-</td>
+
+              <td id="laporanTorak">-</td>
+
+              <td id="statusTorak">-</td>
+            </tr>
+
+            <!-- OLI -->
+
+            <tr>
+              <td>
+                <b> Oli Suspensi </b>
+              </td>
+
+              <td id="standarMinyak">-</td>
+
+              <td id="laporanMinyak">-</td>
+
+              <td id="statusMinyak">-</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOKUMENTASI PRAKTIK -->
+
+    <section>
+      <div class="container">
+        <h2>Dokumentasi Praktik</h2>
+
+        <div class="card">
+          <p>
+            Dokumentasi berikut merupakan bukti kegiatan praktik yang telah
+            dilakukan oleh peserta didik.
+          </p>
+
+          <div class="report-photos">
+          <div class="report-photo">
+            <h3>1. Pembongkaran Suspensi</h3>
+
+            <img
+              id="laporanFotoPembongkaran"
+              class="report-image"
+              alt="Foto Pembongkaran Suspensi"
+            />
+          </div>
+
+          <div class="report-photo">
+            <h3>2. Pemeriksaan Komponen</h3>
+
+            <img
+              id="laporanFotoPemeriksaan"
+              class="report-image"
+              alt="Foto Pemeriksaan Komponen"
+            />
+          </div>
+
+          <div class="report-photo">
+            <h3>3. Hasil Akhir Praktik</h3>
+
+            <img
+              id="laporanFotoAkhir"
+              class="report-image"
+              alt="Foto Hasil Akhir"
+            />
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALISIS HASIL -->
+
+    <section>
+      <div class="container">
+        <h2>Analisis Hasil Praktik</h2>
+
+        <div class="card">
+          <h3>Analisis Siswa</h3>
+
+          <textarea
+            id="laporanAnalisis"
+            placeholder="
+Jelaskan hasil pemeriksaan komponen suspensi,
+kondisi komponen, kesesuaian dengan standar,
+dan tindakan yang dilakukan.
+"
+          ></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- KESIMPULAN -->
+
+    <section>
+      <div class="container">
+        <h2>Kesimpulan</h2>
+
+        <div class="card">
+          <textarea
+            id="laporanKesimpulan"
+            placeholder="
+Tuliskan kesimpulan hasil praktik.
+"
+          ></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- TANDA TANGAN -->
+    <section>
+      <div class="container">
+        <div class="signature-grid">
+          <div>
+            <p>Guru Pembimbing</p>
+            <div class="sign-space"></div>
+            <p class="sign-name">( ............................. )</p>
+          </div>
+          <div>
+            <p>Siswa</p>
+            <div class="sign-space"></div>
+            <p class="sign-name">( ............................. )</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PRINT BUTTON -->
+
+    <section class="no-print">
+      <div class="container">
+        <div class="card print-section">
+          <button onclick="window.print()" class="print-btn">
+            🖨 Cetak Laporan PDF
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>E-Jobsheet Pemeliharaan Sistem Suspensi Depan</p>
+
+      <p>Teknik Bisnis Sepeda Motor</p>
+    </footer>
+
+    <script src="../js/laporan.js"></script>
+      <script src="../js/ui.js"></script>
+  </body>
+</html>
