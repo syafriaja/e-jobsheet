@@ -485,8 +485,12 @@ Tuliskan kesimpulan hasil praktik.
     <section class="no-print">
       <div class="container">
         <div class="card print-section">
+          <button id="btnUnduhPdf" type="button" class="print-btn">
+            📄 Unduh Laporan PDF
+          </button>
+
           <button onclick="window.print()" class="print-btn">
-            🖨 Cetak Laporan PDF
+            🖨 Cetak Laporan
           </button>
         </div>
       </div>
@@ -500,6 +504,9 @@ Tuliskan kesimpulan hasil praktik.
 
     <script src="../js/laporan.js"></script>
     <script src="../js/laporan-foto.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../js/laporan-pdf.js"></script>
       <script src="../js/ui.js"></script>
   </body>
 </html>

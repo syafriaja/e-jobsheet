@@ -2,11 +2,10 @@
 // dokumentasi.js
 // Satu fungsi untuk SEMUA foto dokumentasi di halaman praktik.
 // - Ambil foto langsung dari kamera HP atau pilih dari galeri
-// - Foto dikecilkan otomatis (tidak peduli sebesar apa hasil kamera)
-// - Preview tampil, tersimpan di localStorage, dan tampil lagi saat
-//   halaman dibuka ulang
-// Key penyimpanan = id input (contoh: "fotoPembongkaran"), sama seperti
-// sebelumnya, jadi laporan.js yang lama tetap bisa membacanya.
+// - Foto dikecilkan otomatis sebelum disimpan
+// - Disimpan di IndexedDB (kapasitas jauh lebih besar dari localStorage)
+// - Foto lama di localStorage otomatis dipindahkan ke IndexedDB
+// Key penyimpanan = id input (contoh: "fotoPembongkaran").
 // ============================================================
 
 const DAFTAR_FOTO = [
@@ -31,7 +30,102 @@ const DAFTAR_FOTO = [
 const FOTO_LEBAR_MAKS = 1280; // piksel
 const FOTO_KUALITAS = 0.75; // kualitas JPEG (0 - 1)
 
-// Kecilkan foto lewat canvas, hasilnya data URL JPEG
+const DB_NAMA = "ejobsheet-suspensi";
+const DB_STORE = "foto";
+
+// ---------- IndexedDB ----------
+
+let dbPromise = null;
+
+function bukaDB() {
+  if (dbPromise) return dbPromise;
+
+  dbPromise = new Promise(function (resolve, reject) {
+    if (!window.indexedDB) {
+      reject(new Error("IndexedDB tidak tersedia"));
+      return;
+    }
+
+    const req = indexedDB.open(DB_NAMA, 1);
+
+    req.onupgradeneeded = function () {
+      req.result.createObjectStore(DB_STORE);
+    };
+    req.onsuccess = function () {
+      resolve(req.result);
+    };
+    req.onerror = function () {
+      reject(req.error);
+    };
+  });
+
+  return dbPromise;
+}
+
+function simpanFoto(key, dataUrl) {
+  return bukaDB().then(function (db) {
+    return new Promise(function (resolve, reject) {
+      const tx = db.transaction(DB_STORE, "readwrite");
+      tx.objectStore(DB_STORE).put(dataUrl, key);
+      tx.oncomplete = function () {
+        resolve();
+      };
+      tx.onerror = function () {
+        reject(tx.error);
+      };
+      tx.onabort = function () {
+        reject(tx.error);
+      };
+    });
+  });
+}
+
+function ambilFoto(key) {
+  return bukaDB().then(function (db) {
+    return new Promise(function (resolve, reject) {
+      const req = db.transaction(DB_STORE).objectStore(DB_STORE).get(key);
+      req.onsuccess = function () {
+        resolve(req.result || null);
+      };
+      req.onerror = function () {
+        reject(req.error);
+      };
+    });
+  });
+}
+
+// Ambil foto: cari di IndexedDB, kalau belum ada cek localStorage (foto lama)
+// lalu pindahkan ke IndexedDB supaya jatah localStorage kosong kembali.
+function muatFoto(key) {
+  return ambilFoto(key)
+    .then(function (data) {
+      if (data) return data;
+
+      let lama = null;
+      try {
+        lama = localStorage.getItem(key);
+      } catch (e) {}
+
+      if (!lama) return null;
+
+      return simpanFoto(key, lama).then(function () {
+        try {
+          localStorage.removeItem(key);
+        } catch (e) {}
+        return lama;
+      });
+    })
+    .catch(function () {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        return null;
+      }
+    });
+}
+
+// ---------- Kompres foto ----------
+
 function kecilkanFoto(file, callback) {
   const reader = new FileReader();
 
@@ -73,6 +167,8 @@ function kecilkanFoto(file, callback) {
   reader.readAsDataURL(file);
 }
 
+// ---------- Input foto ----------
+
 function tampilkanFoto(input, previewID, storageID) {
   const file = input.files && input.files[0];
   if (!file) return;
@@ -87,18 +183,20 @@ function tampilkanFoto(input, previewID, storageID) {
 
     if (preview) preview.src = hasil;
 
-    try {
-      localStorage.setItem(storageID, hasil);
-    } catch (err) {
-      alert(
-        "Foto tampil, tetapi penyimpanan browser penuh sehingga foto ini tidak tersimpan. " +
-          "Hapus data situs ini atau kurangi jumlah foto, lalu coba lagi.",
-      );
-    }
+    simpanFoto(storageID, hasil).catch(function () {
+      // Cadangan terakhir kalau IndexedDB tidak bisa dipakai
+      try {
+        localStorage.setItem(storageID, hasil);
+      } catch (err) {
+        alert(
+          "Foto tampil, tetapi tidak bisa disimpan di browser ini. " +
+            "Coba buka halaman bukan di mode Private/Incognito, lalu ulangi.",
+        );
+      }
+    });
   });
 }
 
-// Pasang ke semua input foto + tampilkan foto yang sudah tersimpan
 DAFTAR_FOTO.forEach(function (pasangan) {
   const inputID = pasangan[0];
   const previewID = pasangan[1];
@@ -110,7 +208,8 @@ DAFTAR_FOTO.forEach(function (pasangan) {
     tampilkanFoto(this, previewID, inputID);
   });
 
-  const tersimpan = localStorage.getItem(inputID);
-  const preview = document.getElementById(previewID);
-  if (tersimpan && preview) preview.src = tersimpan;
+  muatFoto(inputID).then(function (data) {
+    const preview = document.getElementById(previewID);
+    if (data && preview) preview.src = data;
+  });
 });
