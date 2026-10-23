@@ -98,7 +98,8 @@
       }
 
       p.textContent = "";
-      p.className = (p.className ? p.className + " " : "") + "line-item " + kind;
+      p.className =
+        (p.className ? p.className + " " : "") + "line-item " + kind;
 
       var mk = doc.createElement("span");
       mk.className = "mk";
@@ -131,7 +132,9 @@
 
   function enhanceChoices() {
     qsa("label").forEach(function (label) {
-      var input = label.querySelector('input[type="checkbox"], input[type="radio"]');
+      var input = label.querySelector(
+        'input[type="checkbox"], input[type="radio"]',
+      );
       if (input) {
         label.classList.add("choice");
         refreshChoice(input);
@@ -139,7 +142,11 @@
     });
     doc.addEventListener("change", function (event) {
       var t = event.target;
-      if (t && t.tagName === "INPUT" && (t.type === "checkbox" || t.type === "radio")) {
+      if (
+        t &&
+        t.tagName === "INPUT" &&
+        (t.type === "checkbox" || t.type === "radio")
+      ) {
         refreshChoice(t);
       }
     });
@@ -205,9 +212,14 @@
       if (handler.indexOf("simpanPraktik") !== -1) {
         button.addEventListener("click", function () {
           if (readStorage("hasilPegas") !== null) {
-            toast("✓ Hasil praktik tersimpan. Lanjutkan ke laporan bila sudah selesai.");
+            toast(
+              "✓ Hasil praktik tersimpan. Lanjutkan ke laporan bila sudah selesai.",
+            );
           } else {
-            toast("⚠ Data belum tersimpan. Periksa pengaturan penyimpanan browser.", "error");
+            toast(
+              "⚠ Data belum tersimpan. Periksa pengaturan penyimpanan browser.",
+              "error",
+            );
           }
         });
       }
@@ -218,7 +230,10 @@
           if (nama) {
             toast("✓ Identitas siswa tersimpan.");
           } else {
-            toast("⚠ Nama siswa masih kosong. Isi nama lalu simpan lagi.", "error");
+            toast(
+              "⚠ Nama siswa masih kosong. Isi nama lalu simpan lagi.",
+              "error",
+            );
           }
         });
       }
@@ -235,10 +250,9 @@
       }
     });
   }
-
-  /* Foto: dokumentasi.js menyimpan foto sebagai base64 di localStorage.
-     Foto kamera ponsel yang besar bisa melebihi kuota penyimpanan browser
-     tanpa pesan apa pun, jadi hasilnya diperiksa di sini. */
+  /* Foto: dokumentasi.js menyimpan foto ke IndexedDB (dengan localStorage
+     sebagai cadangan). Pemeriksaan di sini memakai muatFoto() dari
+     dokumentasi.js supaya hasilnya akurat untuk kedua jenis penyimpanan. */
   function setupPhotoFeedback() {
     qsa('input[type="file"][id^="foto"]').forEach(function (input) {
       input.addEventListener("change", function () {
@@ -250,14 +264,29 @@
 
         function verify() {
           var current = preview ? preview.getAttribute("src") : null;
-          var saved = readStorage(input.id);
-          if (current && saved && saved === current) {
-            toast("✓ Foto tersimpan.");
+
+          if (typeof window.muatFoto === "function") {
+            window.muatFoto(input.id).then(function (saved) {
+              if (current && saved && saved === current) {
+                toast("✓ Foto tersimpan.");
+              } else {
+                toast(
+                  "⚠ Foto belum tersimpan (kemungkinan ukurannya terlalu besar). Coba foto dengan ukuran lebih kecil.",
+                  "error",
+                );
+              }
+            });
           } else {
-            toast(
-              "⚠ Foto belum tersimpan (kemungkinan ukurannya terlalu besar). Coba foto dengan ukuran lebih kecil.",
-              "error"
-            );
+            // Cadangan kalau muatFoto() entah kenapa tidak tersedia
+            var saved = readStorage(input.id);
+            if (current && saved && saved === current) {
+              toast("✓ Foto tersimpan.");
+            } else {
+              toast(
+                "⚠ Foto belum tersimpan (kemungkinan ukurannya terlalu besar). Coba foto dengan ukuran lebih kecil.",
+                "error",
+              );
+            }
           }
         }
 
@@ -349,7 +378,9 @@
       cards.forEach(function (card) {
         if (card.getBoundingClientRect().top <= line) active = card;
       });
-      stepText.textContent = active ? label(active) : "Mulai dari Identitas Siswa";
+      stepText.textContent = active
+        ? label(active)
+        : "Mulai dari Identitas Siswa";
     }
 
     doc.addEventListener("change", function (event) {
@@ -363,7 +394,7 @@
           window.requestAnimationFrame(updateCurrent);
         }
       },
-      { passive: true }
+      { passive: true },
     );
 
     update();
@@ -375,7 +406,8 @@
     function mark() {
       qsa(".report-photo").forEach(function (box) {
         var img = box.querySelector("img");
-        var empty = !img || img.style.display === "none" || !img.getAttribute("src");
+        var empty =
+          !img || img.style.display === "none" || !img.getAttribute("src");
         box.classList.toggle("is-empty", empty);
       });
     }
