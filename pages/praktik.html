@@ -5,7 +5,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#12355b" />
-    <script>document.documentElement.classList.add("js");</script>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <title>E-Jobsheet Pemeliharaan Suspensi Depan</title>
 
@@ -17,7 +19,14 @@
 
     <nav class="navbar">
       <div class="logo">🔧 E-JOBSHEET SUSPENSI</div>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menuUtama">☰ Menu</button>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menuUtama"
+      >
+        ☰ Menu
+      </button>
       <ul id="menuUtama">
         <li><a href="../index.html">Beranda</a></li>
         <li><a href="orientasi.html">Orientasi</a></li>
@@ -204,7 +213,11 @@
         <div class="card identity-form">
           <div class="form-group">
             <label for="namaSiswa">Nama Siswa</label>
-            <input type="text" id="namaSiswa" placeholder="Masukkan nama siswa" />
+            <input
+              type="text"
+              id="namaSiswa"
+              placeholder="Masukkan nama siswa"
+            />
           </div>
 
           <div class="form-group">
@@ -214,7 +227,11 @@
 
           <div class="form-group">
             <label for="kelompokSiswa">Kelompok</label>
-            <input type="text" id="kelompokSiswa" placeholder="Masukkan kelompok" />
+            <input
+              type="text"
+              id="kelompokSiswa"
+              placeholder="Masukkan kelompok"
+            />
           </div>
 
           <div class="form-group">
@@ -531,13 +548,13 @@
 
           <input type="file" id="fotoPegasLepas" accept="image/*" />
 
-            <br /><br />
+          <br /><br />
 
-            <img
-              id="previewPegasLepas"
-              class="report-image"
-              alt="Preview Foto Pegas Dilepas"
-            />
+          <img
+            id="previewPegasLepas"
+            class="report-image"
+            alt="Preview Foto Pegas Dilepas"
+          />
 
           <br /><br />
 
@@ -689,13 +706,13 @@
 
           <input type="file" id="fotoMinyakKeluar" accept="image/*" />
 
-            <br /><br />
+          <br /><br />
 
-            <img
-              id="previewMinyakKeluar"
-              class="report-image"
-              alt="Preview Foto Pengeluaran Minyak"
-            />
+          <img
+            id="previewMinyakKeluar"
+            class="report-image"
+            alt="Preview Foto Pengeluaran Minyak"
+          />
 
           <br /><br />
 
@@ -849,13 +866,13 @@
 
           <input type="file" id="fotoSealLepas" accept="image/*" />
 
-            <br /><br />
+          <br /><br />
 
-            <img
-              id="previewSealLepas"
-              class="report-image"
-              alt="Preview Foto Seal Dilepas"
-            />
+          <img
+            id="previewSealLepas"
+            class="report-image"
+            alt="Preview Foto Seal Dilepas"
+          />
 
           <br /><br />
 
@@ -1017,13 +1034,13 @@
 
           <input type="file" id="fotoTorakTabung" accept="image/*" />
 
-            <br /><br />
+          <br /><br />
 
-            <img
-              id="previewTorakTabung"
-              class="report-image"
-              alt="Preview Foto Torak dan Tabung"
-            />
+          <img
+            id="previewTorakTabung"
+            class="report-image"
+            alt="Preview Foto Torak dan Tabung"
+          />
 
           <br /><br />
 
@@ -1036,283 +1053,304 @@
 
     <!-- STEP 3 PEMERIKSAAN KOMPONEN SUSPENSI -->
 
-    <div class="step-card">
-      <h3>STEP 3</h3>
+    <section>
+      <div class="container">
+        <div class="step-card">
+          <h3>STEP 3</h3>
 
-      <h2>Pemeriksaan Komponen Suspensi</h2>
+          <h2>Pemeriksaan Komponen Suspensi</h2>
 
-      <div class="card">
-        <h3>Tujuan</h3>
+          <div class="card">
+            <h3>Tujuan</h3>
 
-        <p>
-          Melakukan pemeriksaan kondisi komponen utama sistem suspensi depan
-          tipe telescopic fork berdasarkan standar acuan yang diberikan.
-        </p>
+            <p>
+              Melakukan pemeriksaan kondisi komponen utama sistem suspensi depan
+              tipe telescopic fork berdasarkan standar acuan yang diberikan.
+            </p>
 
-        <h3>Petunjuk Pemeriksaan</h3>
+            <h3>Petunjuk Pemeriksaan</h3>
 
-        <p>1. Bersihkan komponen sebelum dilakukan pemeriksaan.</p>
+            <p>1. Bersihkan komponen sebelum dilakukan pemeriksaan.</p>
 
-        <p>2. Amati kondisi fisik setiap komponen.</p>
+            <p>2. Amati kondisi fisik setiap komponen.</p>
 
-        <p>3. Lakukan pengukuran apabila diperlukan.</p>
+            <p>3. Lakukan pengukuran apabila diperlukan.</p>
 
-        <p>4. Bandingkan hasil pemeriksaan dengan standar acuan.</p>
+            <p>4. Bandingkan hasil pemeriksaan dengan standar acuan.</p>
 
-        <p>5. Tentukan kondisi komponen.</p>
+            <p>5. Tentukan kondisi komponen.</p>
+
+            <h3>Tabel Pemeriksaan Komponen</h3>
 
-        <h3>Tabel Pemeriksaan Komponen</h3>
+            <table class="inspection-table">
+              <tr>
+                <th>Komponen</th>
 
-        <table class="inspection-table">
-          <tr>
-            <th>Komponen</th>
+                <th>
+                  Standar Acuan
+                  <br />
+                  (Diisi Guru)
+                </th>
 
-            <th>
-              Standar Acuan
-              <br />
-              (Diisi Guru)
-            </th>
+                <th>
+                  Hasil Pemeriksaan
+                  <br />
+                  (Diisi Siswa)
+                </th>
 
-            <th>
-              Hasil Pemeriksaan
-              <br />
-              (Diisi Siswa)
-            </th>
+                <th>Kesimpulan</th>
+              </tr>
 
-            <th>Kesimpulan</th>
-          </tr>
+              <!-- PEGAS -->
 
-          <!-- PEGAS -->
+              <tr>
+                <td>
+                  <b> Pegas (Spring) </b>
 
-          <tr>
-            <td>
-              <b> Pegas (Spring) </b>
+                  <br /><br />
 
-              <br /><br />
+                  Pemeriksaan:
 
-              Pemeriksaan:
+                  <br />
+                  - Kondisi fisik
+                  <br />
+                  - Panjang pegas
+                  <br />
+                  - Perubahan bentuk
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="standarPegas"
+                    placeholder="Masukkan standar"
+                  />
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="hasilPegas"
+                    placeholder="Hasil pemeriksaan"
+                  />
+                </td>
+
+                <td>
+                  <select id="kondisiPegas">
+                    <option>Pilih</option>
+
+                    <option>Baik</option>
 
-              <br />
-              - Kondisi fisik
-              <br />
-              - Panjang pegas
-              <br />
-              - Perubahan bentuk
-            </td>
+                    <option>Tidak Baik</option>
+                  </select>
+                </td>
+              </tr>
 
-            <td>
-              <input type="text" placeholder="Masukkan standar" />
-            </td>
+              <!-- TABUNG -->
 
-            <td>
-              <input
-                type="text"
-                id="hasilPegas"
-                placeholder="Hasil pemeriksaan"
-              />
-            </td>
+              <tr>
+                <td>
+                  <b> Tabung Suspensi </b>
+
+                  <br /><br />
 
-            <td>
-              <select id="kondisiPegas">
-                <option>Pilih</option>
-
-                <option>Baik</option>
-
-                <option>Tidak Baik</option>
-              </select>
-            </td>
-          </tr>
-
-          <!-- TABUNG -->
-
-          <tr>
-            <td>
-              <b> Tabung Suspensi </b>
-
-              <br /><br />
-
-              Pemeriksaan:
-
-              <br />
-              - Kondisi permukaan
-              <br />
-              - Kelurusan tabung
-              <br />
-              - Kerusakan fisik
-            </td>
-
-            <td>
-              <input type="text" placeholder="Masukkan standar" />
-            </td>
-
-            <td>
-              <input
-                type="text"
-                id="hasilTabung"
-                placeholder="Hasil pemeriksaan"
-              />
-            </td>
-
-            <td>
-              <select id="kondisiTabung">
-                <option>Pilih</option>
-
-                <option>Baik</option>
-
-                <option>Tidak Baik</option>
-              </select>
-            </td>
-          </tr>
-
-          <!-- SEAL OLI -->
-
-          <tr>
-            <td>
-              <b> Seal Oli </b>
-
-              <br /><br />
-
-              Pemeriksaan:
-
-              <br />
-              - Kebocoran oli
-              <br />
-              - Kondisi karet seal
-            </td>
-
-            <td>
-              <input type="text" placeholder="Masukkan standar" />
-            </td>
-
-            <td>
-              <select id="kondisiSealOli">
-                <option>Pilih</option>
-
-                <option>Baik</option>
-
-                <option>Rusak</option>
-              </select>
-            </td>
-
-            <td>
-              <select>
-                <option>Pilih</option>
-
-                <option>Sesuai</option>
-
-                <option>Tidak Sesuai</option>
-              </select>
-            </td>
-          </tr>
-
-          <!-- SEAL DEBU -->
-
-          <tr>
-            <td>
-              <b> Seal Debu </b>
-
-              <br /><br />
-
-              Pemeriksaan:
-
-              <br />
-              - Kondisi fisik
-              <br />
-              - Kebersihan
-              <br />
-              - Posisi pemasangan
-            </td>
-
-            <td>
-              <input type="text" placeholder="Masukkan standar" />
-            </td>
-
-            <td>
-              <select id="kondisiSealDebu">
-                <option>Pilih</option>
-
-                <option>Baik</option>
-
-                <option>Rusak</option>
-              </select>
-            </td>
-
-            <td>
-              <select>
-                <option>Pilih</option>
-
-                <option>Sesuai</option>
-
-                <option>Tidak Sesuai</option>
-              </select>
-            </td>
-          </tr>
-
-          <!-- TORAK -->
-
-          <tr>
-            <td>
-              <b> Torak / Damper </b>
-
-              <br /><br />
-
-              Pemeriksaan:
-
-              <br />
-              - Gerakan torak
-              <br />
-              - Kondisi permukaan
-              <br />
-              - Kebocoran
-            </td>
-
-            <td>
-              <input type="text" placeholder="Masukkan standar" />
-            </td>
-
-            <td>
-              <select id="kondisiTorakGarpu">
-                <option>Pilih</option>
-
-                <option>Baik</option>
-
-                <option>Tidak Baik</option>
-              </select>
-            </td>
-
-            <td>
-              <select>
-                <option>Pilih</option>
-
-                <option>Sesuai</option>
-
-                <option>Tidak Sesuai</option>
-              </select>
-            </td>
-          </tr>
-        </table>
-
-        <br />
-
-        <h3>Dokumentasi Pemeriksaan</h3>
-
-        <input type="file" id="fotoPemeriksaan" accept="image/*" />
-
-        <br /><br />
-
-        <img
-          id="previewPemeriksaan"
-          class="report-image"
-          alt="Preview Foto Pemeriksaan"
-        />
-
-        <br /><br />
-
-        <label> Catatan Pemeriksaan: </label>
-
-        <textarea placeholder="Tuliskan hasil pemeriksaan komponen"></textarea>
+                  Pemeriksaan:
+
+                  <br />
+                  - Kondisi permukaan
+                  <br />
+                  - Kelurusan tabung
+                  <br />
+                  - Kerusakan fisik
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="standarTabung"
+                    placeholder="Masukkan standar"
+                  />
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="hasilTabung"
+                    placeholder="Hasil pemeriksaan"
+                  />
+                </td>
+
+                <td>
+                  <select id="kondisiTabung">
+                    <option>Pilih</option>
+
+                    <option>Baik</option>
+
+                    <option>Tidak Baik</option>
+                  </select>
+                </td>
+              </tr>
+
+              <!-- SEAL OLI -->
+
+              <tr>
+                <td>
+                  <b> Seal Oli </b>
+
+                  <br /><br />
+
+                  Pemeriksaan:
+
+                  <br />
+                  - Kebocoran oli
+                  <br />
+                  - Kondisi karet seal
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="standarSealOli"
+                    placeholder="Masukkan standar"
+                  />
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="hasilSealOli"
+                    placeholder="Hasil pemeriksaan"
+                  />
+                </td>
+
+                <td>
+                  <select id="kondisiSealOli">
+                    <option>Pilih</option>
+
+                    <option>Baik</option>
+
+                    <option>Rusak</option>
+                  </select>
+                </td>
+              </tr>
+
+              <!-- SEAL DEBU -->
+
+              <tr>
+                <td>
+                  <b> Seal Debu </b>
+
+                  <br /><br />
+
+                  Pemeriksaan:
+
+                  <br />
+                  - Kondisi fisik
+                  <br />
+                  - Kebersihan
+                  <br />
+                  - Posisi pemasangan
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="standarSealDebu"
+                    placeholder="Masukkan standar"
+                  />
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="hasilSealDebu"
+                    placeholder="Hasil pemeriksaan"
+                  />
+                </td>
+
+                <td>
+                  <select id="kondisiSealDebu">
+                    <option>Pilih</option>
+
+                    <option>Baik</option>
+
+                    <option>Rusak</option>
+                  </select>
+                </td>
+              </tr>
+
+              <!-- TORAK -->
+
+              <tr>
+                <td>
+                  <b> Torak / Damper </b>
+
+                  <br /><br />
+
+                  Pemeriksaan:
+
+                  <br />
+                  - Gerakan torak
+                  <br />
+                  - Kondisi permukaan
+                  <br />
+                  - Kebocoran
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="standarTorak"
+                    placeholder="Masukkan standar"
+                  />
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    id="hasilTorak"
+                    placeholder="Hasil pemeriksaan"
+                  />
+                </td>
+
+                <td>
+                  <select id="kondisiTorakGarpu">
+                    <option>Pilih</option>
+
+                    <option>Baik</option>
+
+                    <option>Tidak Baik</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+
+            <br />
+
+            <h3>Dokumentasi Pemeriksaan</h3>
+
+            <input type="file" id="fotoPemeriksaan" accept="image/*" />
+
+            <br /><br />
+
+            <img
+              id="previewPemeriksaan"
+              class="report-image"
+              alt="Preview Foto Pemeriksaan"
+            />
+
+            <br /><br />
+
+            <label> Catatan Pemeriksaan: </label>
+
+            <textarea
+              placeholder="Tuliskan hasil pemeriksaan komponen"
+            ></textarea>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
     <!-- STEP 4.1 Persiapan Pengisian Minyak Suspensi -->
 
     <section>
@@ -1460,6 +1498,18 @@
             </tr>
 
             <tr>
+              <td>Standar acuan oli (diisi guru)</td>
+
+              <td colspan="2">
+                <input
+                  type="text"
+                  id="standarMinyak"
+                  placeholder="Contoh: SAE 10W, 150 ml ±5 ml"
+                />
+              </td>
+            </tr>
+
+            <tr>
               <td>Jenis minyak suspensi</td>
 
               <td>
@@ -1512,13 +1562,13 @@
 
           <input type="file" id="fotoPengisianOli" accept="image/*" />
 
-            <br /><br />
+          <br /><br />
 
-            <img
-              id="previewPengisianOli"
-              class="report-image"
-              alt="Preview Foto Pengisian Oli"
-            />
+          <img
+            id="previewPengisianOli"
+            class="report-image"
+            alt="Preview Foto Pengisian Oli"
+          />
 
           <br /><br />
 
@@ -2262,6 +2312,6 @@
     <script src="../js/identitas.js"></script>
     <script src="../js/dokumentasi.js"></script>
     <script src="../js/praktik.js"></script>
-      <script src="../js/ui.js"></script>
+    <script src="../js/ui.js"></script>
   </body>
 </html>
