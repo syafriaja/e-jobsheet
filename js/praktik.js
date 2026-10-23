@@ -64,8 +64,6 @@ function simpanPraktik() {
   localStorage.setItem("jenisMinyak", jenisMinyak);
   localStorage.setItem("volumeMinyak", volumeMinyak);
   localStorage.setItem("kondisiMinyak", kondisiMinyak);
-
-  alert("✅ Hasil praktik berhasil disimpan! Silakan buka halaman Laporan.");
 }
 
 // ---------- Fungsi bantu ----------
